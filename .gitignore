@@ -1,0 +1,11 @@
+# for Node.js
+/node_modules/
+
+# for PureScript
+/bower_components/
+/output/
+/.pulp-cache/
+/.psc-package/
+/.psc*
+/.purs*
+/.psa*

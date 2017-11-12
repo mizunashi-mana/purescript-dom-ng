@@ -1,0 +1,21 @@
+{
+  "private": true,
+  "name": "purescript-dom-ng",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "output"
+  ],
+  "dependencies": {
+    "purescript-psci-support": "^3.0.0",
+    "purescript-dom": "^4.10.0",
+    "purescript-transformers": "^3.4.0",
+    "purescript-bifunctors": "^3.0.0",
+    "purescript-eff": "^3.1.0",
+    "purescript-exceptions": "^3.1.0",
+    "purescript-proxy": "^2.1.0",
+    "purescript-newtype": "^2.0.0"
+  },
+  "devDependencies": {}
+}
