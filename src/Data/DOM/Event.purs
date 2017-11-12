@@ -3,5 +3,5 @@ module Data.DOM.Event
   , module Data.DOM.Event.Core
   ) where
 
-import DOM.Event.Types (EventType(..))
+import DOM.Event.Types      (EventType(..))
 import Data.DOM.Event.Core

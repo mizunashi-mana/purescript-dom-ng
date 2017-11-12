@@ -1,11 +1,11 @@
 module Data.DOM.HTML.Core where
 
-import DOM.HTML.Types       as Orig
-import Data.Newtype         (class Newtype)
-import Unsafe.ForeignCoerce (class ReadForeign, class ForeignCoercible, class HasForeignTag)
-import Unsafe.ForeignCoerce as FC
-import Data.DOM.Event       as Event
-import Data.DOM.Node        as Node
+import DOM.HTML.Types         as Orig
+import Data.Newtype           (class Newtype)
+import Unsafe.ForeignCoerce   (class ReadForeign, class ForeignCoercible, class HasForeignTag)
+import Unsafe.ForeignCoerce   as FC
+import Data.DOM.Event         as Event
+import Data.DOM.Node          as Node
 
 newtype Navigator = Navigator Orig.Navigator
 derive instance newtypeNavigator :: Newtype Navigator _
@@ -21,6 +21,9 @@ derive instance newtypeHistory :: Newtype History _
 
 newtype HTMLDocument = HTMLDocument Orig.HTMLDocument
 derive instance newtypeHTMLDocument :: Newtype HTMLDocument _
+
+newtype HTMLElement = HTMLElement Orig.HTMLElement
+derive instance newtypeHTMLElement :: Newtype HTMLElement _
 
 
 -- HasForeignTag instances

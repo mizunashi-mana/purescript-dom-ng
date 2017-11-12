@@ -1,7 +1,9 @@
 module Data.DOM.HTML
-  ( module Data.DOM.HTML.Effects
-  , module Data.DOM.HTML.Core
+  ( module ExportEffects
+  , module ExportDocument
+  , module ExportCore
   ) where
 
-import Data.DOM.HTML.Effects (ALERT, CONFIRM, HISTORY, PROMPT, WINDOW)
-import Data.DOM.HTML.Core (HTMLDocument(..), History(..), Location(..), Navigator(..), Window(..))
+import Data.DOM.HTML.Effects  as ExportEffects
+import Data.DOM.HTML.Document as ExportDocument
+import Data.DOM.HTML.Core     as ExportCore
