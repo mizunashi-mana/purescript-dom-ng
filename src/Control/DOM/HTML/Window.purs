@@ -51,35 +51,3 @@ promptFull :: forall w eff. ForeignCoercible w HTML.Window
   => Maybe String -> Maybe String -> w -> Eff (prompt :: HTML.PROMPT | eff) (Maybe String)
 promptFull msg default = foreignLeftCoerce
   $ Orig.promptDefault (fromMaybe "" msg) (fromMaybe "" default) <<< op HTML.Window
-
--- CSSOM View: https://www.w3.org/TR/cssom-view-1/#extensions-to-the-window-interface
-
-moveBy :: forall w eff. ForeignCoercible w HTML.Window => Int -> Int -> w -> Eff (window :: HTML.WINDOW | eff) Unit
-moveBy x y = foreignLeftCoerce $ Orig.moveBy x y <<< op HTML.Window
-
-moveTo :: forall w eff. ForeignCoercible w HTML.Window => Int -> Int -> w -> Eff (window :: HTML.WINDOW | eff) Unit
-moveTo x y = foreignLeftCoerce $ Orig.moveTo x y <<< op HTML.Window
-
-innerWidth :: forall w eff. ForeignCoercible w HTML.Window => w -> Eff (dom :: DOM | eff) Int
-innerWidth = foreignLeftCoerce $ Orig.innerWidth <<< op HTML.Window
-
-innerHeight :: forall w eff. ForeignCoercible w HTML.Window => w -> Eff (dom :: DOM | eff) Int
-innerHeight = foreignLeftCoerce $ Orig.innerHeight <<< op HTML.Window
-
-outerWidth :: forall w eff. ForeignCoercible w HTML.Window => w -> Eff (dom :: DOM | eff) Int
-outerWidth = foreignLeftCoerce $ Orig.outerWidth <<< op HTML.Window
-
-outerHeight :: forall w eff. ForeignCoercible w HTML.Window => w -> Eff (dom :: DOM | eff) Int
-outerHeight = foreignLeftCoerce $ Orig.outerHeight <<< op HTML.Window
-
-resizeBy :: forall w eff. ForeignCoercible w HTML.Window => Int -> Int -> w -> Eff (window :: HTML.WINDOW | eff) Unit
-resizeBy x y = foreignLeftCoerce $ Orig.resizeBy x y <<< op HTML.Window
-
-resizeTo :: forall w eff. ForeignCoercible w HTML.Window => Int -> Int -> w -> Eff (window :: HTML.WINDOW | eff) Unit
-resizeTo x y = foreignLeftCoerce $ Orig.resizeTo x y <<< op HTML.Window
-
-screenX :: forall w eff. ForeignCoercible w HTML.Window => w -> Eff (dom :: DOM | eff) Int
-screenX = foreignLeftCoerce $ Orig.screenX <<< op HTML.Window
-
-screenY :: forall w eff. ForeignCoercible w HTML.Window => w -> Eff (dom :: DOM | eff) Int
-screenY = foreignLeftCoerce $ Orig.screenY <<< op HTML.Window

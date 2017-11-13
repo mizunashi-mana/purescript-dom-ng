@@ -4,7 +4,7 @@ import Prelude
 
 import Control.Monad.Eff.Class (liftEff)
 import Control.DOM.HTML        (window)
-import Control.DOM.HTML.Window as Window
+import Control.DOM.CSS.Window  (innerWidth, innerHeight, screenX, screenY)
 import Data.DOM.Effect         (DOM)
 import Data.DOM.HTML           as HTML
 import Test.Unit               (TestSuite, describe, it)
@@ -14,21 +14,21 @@ testsHtmlWindow :: forall eff. TestSuite (dom :: DOM, window :: HTML.WINDOW | ef
 testsHtmlWindow = do
   describe "innerHeight" do
     it "should return the default inner height" do
-      windowHeight <- liftEff $ Window.innerHeight =<< window
+      windowHeight <- liftEff $ innerHeight =<< window
       windowHeight `shouldEqual` 300
 
   describe "innerWidth" do
     it "should return the default inner width" do
-      windowWidth <- liftEff $ Window.innerWidth =<< window
+      windowWidth <- liftEff $ innerWidth =<< window
       windowWidth `shouldEqual` 400
 
   describe "screenX" do
     it "should get the X coordinate of the window" do
-      windowScreenX <- liftEff $ Window.screenX =<< window
+      windowScreenX <- liftEff $ screenX =<< window
       windowScreenX `shouldEqual` 0
 
   describe "screenY" do
     it "should get the Y coordinate of the window" do
-      windowScreenY <- liftEff $ Window.screenY =<< window
+      windowScreenY <- liftEff $ screenY =<< window
       windowScreenY `shouldEqual` 0
 

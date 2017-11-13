@@ -17,7 +17,9 @@ DOM APIs have many interfaces (e.g. `HTMLDocument` is a instance of `Document`).
     - Effect: DOM Effects
 	- Event: event interfaces
 	- Node: node interfaces
-	- HTML: HTML partial interfaces by HTML Spec
+	- Parsing: DOM Parsing partial interfaces by Parsing Specs
+	- HTML: HTML partial interfaces by HTML Specs
+	- CSS: CSS partial interfaces by CSSOM Specs
 
 ### Add Useful APIs
 
@@ -32,3 +34,6 @@ DOM APIs have many interfaces (e.g. `HTMLDocument` is a instance of `Document`).
 * WhatWG Specifications
    - HTML Standard: https://html.spec.whatwg.org/ 
    - DOM Standard: https://dom.spec.whatwg.org/
+* W3C Specifications
+   - CSSOM View Standard: https://www.w3.org/TR/cssom-view-1/
+   - DOM Parsing Standard: https://www.w3.org/TR/DOM-Parsing/
