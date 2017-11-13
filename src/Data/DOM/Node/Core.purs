@@ -24,6 +24,12 @@ derive instance newtypeChildNode :: Newtype ChildNode _
 newtype NodeList = NodeList Orig.NodeList
 derive instance newtypeNodeList :: Newtype NodeList _
 
+newtype HTMLCollection = HTMLCollection Orig.HTMLCollection
+derive instance newtypeHTMLCollection :: Newtype HTMLCollection _
+
+newtype DOMTokenList = DOMTokenList Orig.DOMTokenList
+derive instance newtypeDOMTokenList :: Newtype DOMTokenList _
+
 newtype Document = Document Orig.Document
 derive instance newtypeDocument :: Newtype Document _
 

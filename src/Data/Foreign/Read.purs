@@ -9,6 +9,7 @@ import Type.Proxy           (Proxy(..))
 import DOM.Util.FFI         (unsafeReadProtoTagged)
 import Unsafe.Coerce        as U
 
+
 class ReadForeign a where
   readForeign :: Foreign -> F a
 

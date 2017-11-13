@@ -21,6 +21,7 @@
     "purescript-test-unit": "^13.0.0",
     "purescript-phantom": "^3.0.1",
     "purescript-exitcodes": "^3.0.0",
-    "purescript-aff": "^4.0.0"
+    "purescript-aff": "^4.0.0",
+    "purescript-profunctor": "^3.2.0"
   }
 }
