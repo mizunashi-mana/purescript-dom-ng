@@ -1,20 +1,13 @@
-module Unsafe.ForeignCoerce where
+module Data.Foreign.Read where
 
 import Prelude
-
 import Control.Monad.Except (runExcept)
 import Data.Either          (either)
-import Data.Foreign         (F, Foreign)
-import Data.Maybe           (Maybe (..))
+import Data.Foreign         (Foreign, F)
+import Data.Maybe           (Maybe(..))
+import Type.Proxy           (Proxy(..))
 import DOM.Util.FFI         (unsafeReadProtoTagged)
-import Type.Proxy           (Proxy (..))
 import Unsafe.Coerce        as U
-
-class ForeignCoercible a b where
-  foreignCoerce :: a -> b
-
-gforeignCoerce :: forall a b. a -> b
-gforeignCoerce = U.unsafeCoerce
 
 class ReadForeign a where
   readForeign :: Foreign -> F a

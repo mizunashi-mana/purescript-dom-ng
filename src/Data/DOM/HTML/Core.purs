@@ -1,11 +1,12 @@
 module Data.DOM.HTML.Core where
 
-import DOM.HTML.Types         as Orig
-import Data.Newtype           (class Newtype)
-import Unsafe.ForeignCoerce   (class ReadForeign, class ForeignCoercible, class HasForeignTag)
-import Unsafe.ForeignCoerce   as FC
-import Data.DOM.Event         as Event
-import Data.DOM.Node          as Node
+import DOM.HTML.Types as Orig
+import Data.DOM.Event as Event
+import Data.DOM.Node as Node
+import Data.Foreign.Coerce (class ForeignCoercible)
+import Data.Foreign.Read (class ReadForeign, class HasForeignTag)
+import Data.Foreign.Read as Foreign
+import Data.Newtype (class Newtype)
 
 newtype Navigator = Navigator Orig.Navigator
 derive instance newtypeNavigator :: Newtype Navigator _
@@ -19,8 +20,8 @@ derive instance newtypeWindow :: Newtype Window _
 newtype History = History Orig.History
 derive instance newtypeHistory :: Newtype History _
 
-newtype HTMLDocument = HTMLDocument Orig.HTMLDocument
-derive instance newtypeHTMLDocument :: Newtype HTMLDocument _
+newtype Document = Document Orig.HTMLDocument
+derive instance newtypeDocument :: Newtype Document _
 
 newtype HTMLElement = HTMLElement Orig.HTMLElement
 derive instance newtypeHTMLElement :: Newtype HTMLElement _
@@ -28,20 +29,23 @@ derive instance newtypeHTMLElement :: Newtype HTMLElement _
 
 -- HasForeignTag instances
 
-instance foreignTagForHTMLDocument :: HasForeignTag HTMLDocument where
+instance foreignTagForDocument :: HasForeignTag Document where
   foreignTag _ = "HTMLDocument"
 
 
 -- ReadForeign instances
 
-instance readHTMLDocument :: ReadForeign HTMLDocument where
-  readForeign = FC.greadForeign
+instance readDocument :: ReadForeign Document where
+  readForeign = Foreign.greadForeign
 
 
 -- ForeignCoerce instances
 
-instance windowToEventTarget :: ForeignCoercible Window Event.EventTarget where
-  foreignCoerce = FC.gforeignCoerce
+-- | Window -> Event.EventTarget
+instance windowToEventTarget :: ForeignCoercible Window Event.EventTarget
 
-instance htmlDocumentToDocument :: ForeignCoercible HTMLDocument Node.Document where
-  foreignCoerce = FC.gforeignCoerce
+-- | Document -> Node.Document
+instance htmlDocumentToDocument :: ForeignCoercible Document Node.Document
+
+-- | Document -> Node.Document -> Node.NonElementParentNode
+instance htmlDocumentToNonElementParentNode :: ForeignCoercible Document Node.NonElementParentNode

@@ -3,8 +3,9 @@ module Data.DOM.Event.Core where
 import Prelude
 import DOM.Event.Types      as Orig
 import Data.Newtype         (class Newtype, wrap)
-import Unsafe.ForeignCoerce (class ReadForeign, class ForeignCoercible, class HasForeignTag)
-import Unsafe.ForeignCoerce as FC
+import Data.Foreign.Coerce  (class ForeignCoercible)
+import Data.Foreign.Read    (class ReadForeign, class HasForeignTag)
+import Data.Foreign.Read    as Foreign
 
 newtype Event = Event Orig.Event
 derive instance newtypeEvent :: Newtype Event _
@@ -34,10 +35,9 @@ instance readEventTarget :: ReadForeign EventTarget where
   readForeign = map wrap <<< Orig.readEventTarget
 
 instance readCustomEvent :: ReadForeign CustomEvent where
-  readForeign = FC.greadForeign
+  readForeign = Foreign.greadForeign
 
 
 -- ForeignCoerce instances
 
-instance customEventToEvent :: ForeignCoercible CustomEvent Event where
-  foreignCoerce = FC.gforeignCoerce
+instance customEventToEvent :: ForeignCoercible CustomEvent Event
